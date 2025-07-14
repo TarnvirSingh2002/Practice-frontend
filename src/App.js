@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense} from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallBack from './ErrorFallBack';
+
+// Loading them only when they are actually needed, not when the initial bundle is loaded
+const UserCard = lazy(() => import('./UserCard'));
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: '30px' }}>
+      <ErrorBoundary FallbackComponent={ErrorFallBack}>{/*OR fallback={<p>Error is occuured in your compom....nent</p>}*/}
+        <Suspense fallback={<p>Loading.........</p>}>
+          <UserCard name="Tarnvir Singh" status="online" />
+          <UserCard name="Alex Doe" status="offline" />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
