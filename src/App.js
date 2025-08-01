@@ -61,14 +61,15 @@
 //REDUX IN REACT
 
 import { useDispatch, useSelector } from "react-redux"
+import { deposit, withdraw } from "./reduxPractice/reducers";
 export default function App() {
-  const state = useSelector(faltu=>faltu.val);
+  const state = useSelector(state=>state.bank.val);
   const dispatch = useDispatch();
   return (
     <>
       <h1>{state}</h1>
-      <button onClick={()=>{dispatch({type: "deposit"})}}>Add</button>
-      <button onClick={()=>{dispatch({type: "withdraw"})}}>subtract</button>
+      <button onClick={()=>dispatch(deposit())}>Add</button>
+      <button onClick={()=>dispatch(withdraw())}>subtract</button>
     </>
   )
 }

@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { val: 0 };
-
 const bankSlice = createSlice({
   name: "bank",
-  initialState,
+  initialState : { val: 0 },
   reducers: {
     deposit: (state) => {
-      state.val += 100; // RTK allows direct mutation (uses Immer under the hood)
+      state.val += 100; 
     },
     withdraw: (state) => {
       state.val -= 100;
@@ -15,8 +13,6 @@ const bankSlice = createSlice({
   },
 });
 
-// Export actions
 export const { deposit, withdraw } = bankSlice.actions;
 
-// Export reducer to use in store
 export default bankSlice.reducer;
