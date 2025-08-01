@@ -1,3 +1,6 @@
+// USING THE LAZY LOADING
+
+
 // import { lazy, Suspense} from 'react';
 // import { ErrorBoundary } from 'react-error-boundary';
 // import ErrorFallBack from './ErrorFallBack';
@@ -21,13 +24,51 @@
 
 // export default App;
 
-import Calculation from './Calculation'
 
+
+// USING THE JEST TESTING
+
+// import Calculation from './Calculation'
+
+// export default function App() {
+//   return (
+//     <div>
+//       <Calculation/>
+//     </div>
+//   )
+// }
+
+
+
+// CREATE OUR CUSTOM HOOK
+
+
+// import useCounter from './custom-hook/useCounter'
+
+// export default function App() {
+//   const [addOne, minusOne, state]=useCounter(10); //order must be same
+//   return (
+//     <div>
+//       <h1>{state}</h1>
+//       <button onClick={addOne}>Add</button>
+//       <button onClick={minusOne}>Minus</button>
+//     </div>
+//   )
+// }
+
+
+
+//REDUX IN REACT
+
+import { useDispatch, useSelector } from "react-redux"
 export default function App() {
+  const state = useSelector(faltu=>faltu.val);
+  const dispatch = useDispatch();
   return (
-    <div>
-      <Calculation/>
-    </div>
+    <>
+      <h1>{state}</h1>
+      <button onClick={()=>{dispatch({type: "deposit"})}}>Add</button>
+      <button onClick={()=>{dispatch({type: "withdraw"})}}>subtract</button>
+    </>
   )
 }
-
