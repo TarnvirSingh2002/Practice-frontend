@@ -61,15 +61,21 @@
 //REDUX IN REACT
 
 import { useDispatch, useSelector } from "react-redux"
-import { deposit, withdraw } from "./reduxPractice/reducers";
+import { addition, deposit, subtraction, withdraw } from "./reduxPractice/reducers";
 export default function App() {
   const state = useSelector(state=>state.bank.val);
+
+  const s=useSelector(state=>state.school.value);
   const dispatch = useDispatch();
   return (
     <>
       <h1>{state}</h1>
       <button onClick={()=>dispatch(deposit())}>Add</button>
       <button onClick={()=>dispatch(withdraw())}>subtract</button>
+
+      <h3>{s}</h3>
+      <button onClick={()=>dispatch(addition())}>Add</button>
+      <button onClick={()=>dispatch(subtraction())}>subtract</button>
     </>
   )
 }

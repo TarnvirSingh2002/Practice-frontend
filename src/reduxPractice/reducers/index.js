@@ -13,6 +13,23 @@ const bankSlice = createSlice({
   },
 });
 
+const addMinusSlice = createSlice({
+  name:"addMinus",
+  initialState:{ value:0 },
+  reducers:{
+    addition:(state)=>{
+      state.value+=1;
+    },
+    subtraction:(state)=>{
+      state.value-=1;
+    }
+  }
+});
+
+export const {addition, subtraction} = addMinusSlice.actions;
+
+export const school = addMinusSlice.reducer;
+
 export const { deposit, withdraw } = bankSlice.actions;
 
 export default bankSlice.reducer;

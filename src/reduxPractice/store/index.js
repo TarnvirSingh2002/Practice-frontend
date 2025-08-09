@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import redy from "../reducers/index"
+import redy, { school } from "../reducers/index"
 const store = configureStore({
     reducer:{
-        bank:redy
+        bank:redy,
+        school
     }
 });
 export default store;
